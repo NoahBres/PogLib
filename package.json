@@ -18,10 +18,16 @@
     "url": "https://github.com/NoahBres/PogLib/issues"
   },
   "homepage": "https://github.com/NoahBres/PogLib#readme",
+  "browserslist": [
+    "> 0.2%",
+    "not IE 11",
+    "not op_mini all"
+  ],
   "devDependencies": {
     "parcel": "^2.0.0-beta.1"
   },
   "dependencies": {
+    "cloudinary-react": "^1.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
