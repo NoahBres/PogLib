@@ -5,7 +5,10 @@
   "main": "dist/index.html",
   "scripts": {
     "start": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "start:lambda": "netlify-lambda serve functions",
+    "build": "parcel build ./src/index.html",
+    "build:lambda": "netlify-lambda build functions",
+    "prod": "npm run build; npm run build:lambda"
   },
   "repository": {
     "type": "git",
@@ -28,6 +31,7 @@
   },
   "dependencies": {
     "cloudinary-react": "^1.6.6",
+    "netlify-lambda": "^2.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
