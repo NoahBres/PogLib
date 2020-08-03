@@ -80,9 +80,9 @@ export default function MainGrid() {
 
   return (
     <CloudinaryContext cloudName={process.env.CLOUD_NAME}>
-      <div className="grid grid-cols-4">
-        <div className="col-start-2 col-span-2 row-start-2 flex justify-center items-center">
-          <img src={PogLibLogo} style={{ height: "20rem" }}></img>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+        <div className="col-start-1 md:col-start-1 lg:col-start-2 xl:col-start-2 md:col-span-3 lg:col-span-2 xl:col-span-4 row-start-1 md:row-start-2 flex justify-center items-center my-24 xl:m-0">
+          <img src={PogLibLogo} className="h-48 xl:h-64"></img>
         </div>
         {itemList}
       </div>
