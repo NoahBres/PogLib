@@ -10,13 +10,13 @@ export default function UploadWidget() {
         uploadPreset: process.env.UPLOAD_PRESET,
         cropping: true,
         sources: ["local", "url", "camera"],
-        tags: ["poglib"],
+        tags: ["poglib", "unverified"],
       },
       (error, result) => {
-        console.log(
-          result.info.secure_url,
-          `An image of ${result.info.original_filename}`
-        );
+        // console.log(
+        //   result.info.secure_url,
+        //   `An image of ${result.info.original_filename}`
+        // );
         // this.setState({
         //   imageUrl: result.info.secure_url,
         //   imageAlt: `An image of ${result.info.original_filename}`,
