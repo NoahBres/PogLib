@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function UploadGridItem({ className = "", style = {} }) {
   const [randomColorIndex, setRandomColorIndex] = useState(0);
 
   const [pattern, setPattern] = useState("");
+
+  const cloudinaryWidget = useRef(null);
 
   const colorChoices = [
     "bg-blue-500",
@@ -44,6 +46,32 @@ export default function UploadGridItem({ className = "", style = {} }) {
     setPattern(patterns[Math.floor(Math.random() * patterns.length)]);
   }, [randomColorIndex]);
 
+  useEffect(() => {
+    cloudinaryWidget.current = window.cloudinary.createUploadWidget(
+      {
+        cloudName: process.env.CLOUD_NAME,
+        uploadPreset: process.env.UPLOAD_PRESET,
+        cropping: true,
+        sources: ["local", "url", "camera"],
+        tags: ["poglib", "unverified"],
+      },
+      (error, result) => {
+        // console.log(
+        //   result.info.secure_url,
+        //   `An image of ${result.info.original_filename}`
+        // );
+        // this.setState({
+        //   imageUrl: result.info.secure_url,
+        //   imageAlt: `An image of ${result.info.original_filename}`,
+        // });
+      }
+    );
+  });
+
+  function handleClick(e) {
+    cloudinaryWidget.current.open(); // open up the widget after creation
+  }
+
   return (
     <div
       className={`flex justify-center items-center flex-col relative ${colorChoices[randomColorIndex]} ${className}`}
@@ -67,6 +95,7 @@ export default function UploadGridItem({ className = "", style = {} }) {
       </p>
       <button
         className={`text-white z-10 px-3 py-1 rounded mt-2 ${buttonBgColor[randomColorIndex]}`}
+        onClick={handleClick}
       >
         Upload your pog
       </button>
