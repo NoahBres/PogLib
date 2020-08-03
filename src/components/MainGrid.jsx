@@ -42,13 +42,13 @@ export default function MainGrid() {
                 className="h-full"
                 style={{ width: "100%", objectFit: "cover" }}
               >
-                {/* <Transformation
+                <Transformation
                   crop="fit"
-                  width="400"
-                  height="400"
+                  width="500"
+                  height="500"
                   dpr="auto"
                   responsive_placeholder="blank"
-                /> */}
+                />
               </Image>
             </div>
           );
